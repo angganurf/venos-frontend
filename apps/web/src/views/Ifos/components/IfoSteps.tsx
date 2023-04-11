@@ -164,7 +164,6 @@ const Step2 = ({ hasProfile, isLive, isCommitted }: { hasProfile: boolean; isLiv
 
 const IfoSteps: React.FC<React.PropsWithChildren<TypeProps>> = ({
   isCommitted,
-  hasClaimed,
   isLive,
   ifoCurrencyAddress,
 }) => {

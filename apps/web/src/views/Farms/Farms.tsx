@@ -1,14 +1,12 @@
 import { useEffect, useCallback, useState, useMemo, useRef } from 'react'
 import BigNumber from 'bignumber.js'
-import { ChainId } from '@pancakeswap/sdk'
+// import { ChainId } from '@pancakeswap/sdk'
 import { useAccount } from 'wagmi'
 import {
   Image,
   Heading,
   Toggle,
   Text,
-  Button,
-  ArrowForwardIcon,
   Flex,
   Link,
   Box,
@@ -19,7 +17,6 @@ import {
   OptionProps,
   FlexLayout,
   PageHeader,
-  NextLinkFromReactRouter,
   ToggleView,
 } from '@pancakeswap/uikit'
 import styled from 'styled-components'
@@ -36,8 +33,6 @@ import { ViewMode } from 'state/user/actions'
 import { useRouter } from 'next/router'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import Table from './components/FarmTable/FarmTable'
-import { BCakeBoosterCard } from './components/BCakeBoosterCard'
-import { FarmTypesFilter } from './components/FarmTypesFilter'
 import { FarmsContext } from './context'
 import useMultiChainHarvestModal from './hooks/useMultiChainHarvestModal'
 
@@ -187,7 +182,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [stakedOnly, setStakedOnly] = useUserFarmStakedOnly(isActive)
   const [boostedOnly, setBoostedOnly] = useState(false)
   const [stableSwapOnly, setStableSwapOnly] = useState(false)
-  const [farmTypesEnableCount, setFarmTypesEnableCount] = useState(0)
+  // const [farmTypesEnableCount, setFarmTypesEnableCount] = useState(0)
 
   const activeFarms = farmsLP.filter(
     (farm) =>
