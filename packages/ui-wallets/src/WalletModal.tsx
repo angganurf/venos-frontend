@@ -141,11 +141,11 @@ function MobileModal<T>({
       </AtomBox>
       <AtomBox p="24px" borderTop="1">
         <AtomBox>
-          <Text textAlign="center" color="#DDDDDD" as="p" mb="24px">
+          <Text textAlign="center" color="#DDDDDD" mb="24px">
             {t('Haven’t got a crypto wallet yet?')}
           </Text>
         </AtomBox>
-        <Button as="a" href={docLink} variant="subtle" width="100%" external>
+        <Button as="a" href={docLink} variant="subtle" width="100%">
           {docText}
         </Button>
       </AtomBox>
@@ -156,7 +156,7 @@ function MobileModal<T>({
 function WalletSelect<T>({
   wallets,
   onClick,
-  displayCount = 6,
+  displayCount = 4,
 }: {
   wallets: WalletConfigV2<T>[]
   onClick: (wallet: WalletConfigV2<T>) => void
@@ -172,7 +172,7 @@ function WalletSelect<T>({
       display="grid"
       overflowY="auto"
       overflowX="hidden"
-      px={{ xs: '16px', sm: '48px' }}
+      px={{ xs: '16px', sm: '16px' }}
       pb="12px"
       className={walletSelectWrapperClass}
     >
@@ -299,18 +299,18 @@ function DesktopModal<T>({
         display="flex"
         flexDirection="column"
         bg="backgroundAlt"
-        py="32px"
         zIndex="modal"
         borderRadius="card"
         className={desktopWalletSelectionClass}
+        style={{border : "1px solid #9d00ff", paddingTop:"0", overflow:"hidden", minWidth : "340px"}}
       >
-        <AtomBox display="flex" justifyContent="space-between" px="48px">
-          <Heading color="#FFFFFF" as="h4" style={{paddingBottom:"30px"}}>
+        <AtomBox display="flex" justifyContent="space-between" alignItems="center" style={{padding:"20px 30px 20px 30px", background:"linear-gradient(139.73deg,#313d5c,#3d2a54)"}}>
+          <Heading color="#FFFFFF" as="h4">
             {t('Connect Wallet')}
           </Heading>
-          <div onClick={hideModal} style={{fontSize:"20px", fontWeight:"bold", background : "#2A2448", cursor:"pointer"}}>&times;</div>
+          <span onClick={hideModal} style={{fontSize:"30px", fontFamily:"auto", cursor:"pointer", color : "#9370db"}}>&times;</span>
         </AtomBox>
-        <AtomBox py="20px" style={{borderTop:"2px solid rgb(138 0 163)"}}>
+        <AtomBox py="20px" style={{borderTop:"1px solid #9d00ff"}}>
 
         </AtomBox>
         <WalletSelect
@@ -325,12 +325,13 @@ function DesktopModal<T>({
             }
           }}
         />
-        <AtomBox style={{borderTop:"2px solid rgb(138 0 163)", marginTop:"20px"}}>
+        <AtomBox style={{borderTop:"1px solid #9d00ff", marginTop:"20px"}}>
 
         </AtomBox>
         <AtomBox
           flex={1}
-          mx="24px"
+          px="24px"
+          py="24px"
           display={{
             xs: 'none',
             sm: 'flex',
@@ -419,10 +420,11 @@ const Intro = ({ docLink, docText }: { docLink: string; docText: string }) => {
   const { t } = useTranslation()
   return (
     <>
-      <Heading as="h1" fontSize="20px" color="#DDDDDD" py="20px">
-        {t('Haven’t got a wallet yet?')}
-      </Heading>
-      <Button as={LinkExternal} color="backgroundAlt" variant="subtle" href={docLink}>
+      <Text textAlign="center" color="#DDDDDD" mb="16px">
+            {t('Haven’t got a crypto wallet yet?')}
+          </Text>
+        
+      <Button as={LinkExternal} color="backgroundAlt" variant="subtle" href={docLink} style={{padding: "0 24px", width:"100%"}}>
         {docText}
       </Button>
     </>
