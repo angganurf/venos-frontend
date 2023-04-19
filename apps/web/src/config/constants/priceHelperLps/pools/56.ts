@@ -11,10 +11,10 @@ const priceHelperLps: SerializedFarmConfig[] = [
    */
   {
     pid: null,
-    token: bscTokens.sd,
+    token: bscTokens.woof,
     quoteToken: bscTokens.wbnb,
-    lpSymbol: 'WBNB-SD LP',
-    lpAddress: '0xfD05C106E336bc5696686F422A35EE7a136E1C89',
+    lpSymbol: 'WOOF-CORE LP',
+    lpAddress: '0x4316285b2360091010f29cb93b24365121341af4',
   },
 ].map((p) => ({ ...p, token: p.token.serialize, quoteToken: p.quoteToken.serialize }))
 

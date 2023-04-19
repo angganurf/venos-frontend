@@ -2,10 +2,10 @@ import { StaticJsonRpcProvider } from '@ethersproject/providers'
 
 export const bscProvider = new StaticJsonRpcProvider(
   {
-    url: 'https://nodes.pancakeswap.info',
+    url: 'https://rpc1.shadowswap.xyz',
     skipFetchSetup: true,
   },
-  56,
+  1116,
 )
 
 export const bscTestnetProvider = new StaticJsonRpcProvider(

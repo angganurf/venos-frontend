@@ -120,23 +120,3 @@ export const getBCakeFarmBoosterAddress = () => {
 export const getBCakeFarmBoosterProxyFactoryAddress = () => {
   return getAddress(addresses.bCakeFarmBoosterProxyFactory)
 }
-
-export const getNonBscVaultAddress = (chainId?: number) => {
-  return getAddress(addresses.nonBscVault, chainId)
-}
-
-export const getCrossFarmingSenderAddress = (chainId?: number) => {
-  return getAddress(addresses.crossFarmingSender, chainId)
-}
-
-export const getCrossFarmingReceiverAddress = (chainId?: number) => {
-  return getAddress(addresses.crossFarmingReceiver, chainId)
-}
-
-export const getMMLinkedPoolAddress = (chainId?: number) => {
-  return getAddress(addresses.mmLinkedPool, chainId)
-}
-
-export const getStableSwapNativeHelperAddress = (chainId?: number) => {
-  return getAddress(addresses.stableSwapNativeHelper, chainId)
-}

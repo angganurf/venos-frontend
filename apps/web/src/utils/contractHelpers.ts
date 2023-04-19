@@ -39,12 +39,7 @@ import {
   getCakeFlexibleSideVaultAddress,
   getPredictionsV1Address,
   getBCakeFarmBoosterAddress,
-  getBCakeFarmBoosterProxyFactoryAddress,
-  getNonBscVaultAddress,
-  getCrossFarmingSenderAddress,
-  getCrossFarmingReceiverAddress,
-  getMMLinkedPoolAddress,
-  getStableSwapNativeHelperAddress,
+  getBCakeFarmBoosterProxyFactoryAddress
 } from 'utils/addressHelpers'
 
 // ABI
@@ -189,9 +184,7 @@ export const getIfoV2Contract = (address: string, signer?: Signer | Provider) =>
 export const getIfoV3Contract = (address: string, signer?: Signer | Provider) => {
   return getContract({ abi: ifoV3Abi, address, signer })
 }
-export const getMMLinkedPoolContract = (signer?: Signer | Provider, chainId?: number) => {
-  return getContract({ abi: mmLinkedPoolAbi, address: getMMLinkedPoolAddress(chainId), signer }) as MmLinkedPool
-}
+
 export const getSouschefContract = (id: number, signer?: Signer | Provider) => {
   const config = poolsConfig.find((pool) => pool.sousId === id)
   const abi = config.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef
@@ -376,41 +369,10 @@ export const getBCakeProxyContract = (proxyContractAddress: string, signer?: Sig
   return getContract({ abi: bCakeProxyAbi, address: proxyContractAddress, signer }) as BCakeProxy
 }
 
-export const getNonBscVaultContract = (signer?: Signer | Provider, chainId?: number) => {
-  return getContract({ abi: nonBscVault, address: getNonBscVaultAddress(chainId), chainId, signer }) as NonBscVault
-}
-
-export const getCrossFarmingSenderContract = (signer?: Signer | Provider, chainId?: number) => {
-  return getContract({
-    abi: crossFarmingSenderAbi,
-    address: getCrossFarmingSenderAddress(chainId),
-    chainId,
-    signer,
-  }) as CrossFarmingSender
-}
-
-export const getCrossFarmingReceiverContract = (signer?: Signer | Provider, chainId?: number) => {
-  return getContract({
-    abi: crossFarmingReceiverAbi,
-    address: getCrossFarmingReceiverAddress(chainId),
-    chainId,
-    signer,
-  }) as CrossFarmingReceiver
-}
-
 export const getCrossFarmingProxyContract = (
   proxyContractAddress: string,
   signer?: Signer | Provider,
   chainId?: number,
 ) => {
   return getContract({ abi: crossFarmingProxyAbi, address: proxyContractAddress, chainId, signer }) as CrossFarmingProxy
-}
-
-export const getStableSwapNativeHelperContract = (signer?: Signer | Provider, chainId?: number) => {
-  return getContract({
-    abi: stableSwapNativeHelperAbi,
-    address: getStableSwapNativeHelperAddress(chainId),
-    chainId,
-    signer,
-  }) as StableSwapNativeHelper
 }

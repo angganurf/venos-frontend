@@ -20,7 +20,7 @@ const chainIdToNetwork: { [network: number]: string } = {
   3: 'ropsten',
   4: 'rinkeby',
   42: 'kovan',
-  56: 'bsc', // BSC Mainnet
+  1116: 'bsc', // BSC Mainnet
   97: 'chapel', // BSC Testnet
   137: 'polygon', // Polygon Mainnet
   80001: 'mumbai', // Polygon Testnet
@@ -39,7 +39,7 @@ export class BloctoConnector extends Connector<EthereumProviderInterface, { defa
 
   constructor(
     config: { chains?: Chain[]; options: { defaultChainId: number; appId?: string } } = {
-      options: { defaultChainId: 56 },
+      options: { defaultChainId: 1116 },
     },
   ) {
     const chains = config.chains?.filter((c) => !!chainIdToNetwork[c.id])
