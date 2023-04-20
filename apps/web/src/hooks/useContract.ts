@@ -45,7 +45,7 @@ import {
   getMasterchefV1Contract,
   getNftMarketContract,
   getNftSaleContract,
-  getNonBscVaultContract,
+  // getNonBscVaultContract,
   getPancakeBunniesContract,
   getPancakeSquadContract,
   getPointCenterIfoContract,
@@ -59,7 +59,7 @@ import {
   getTradingCompetitionContractFanToken,
   getTradingCompetitionContractMobox,
   getTradingCompetitionContractMoD,
-  getStableSwapNativeHelperContract,
+  // getStableSwapNativeHelperContract,
 } from 'utils/contractHelpers'
 import { useSigner } from 'wagmi'
 
@@ -371,23 +371,23 @@ export function useBCakeProxyContract(proxyContractAddress: string, withSignerIf
   )
 }
 
-export const useNonBscVault = (withSignerIfPossible = true) => {
-  const { chainId } = useActiveChainId()
-  const providerOrSigner = useProviderOrSigner(withSignerIfPossible)
-  return useMemo(() => getNonBscVaultContract(providerOrSigner, chainId), [providerOrSigner, chainId])
-}
+// export const useNonBscVault = (withSignerIfPossible = true) => {
+//   const { chainId } = useActiveChainId()
+//   const providerOrSigner = useProviderOrSigner(withSignerIfPossible)
+//   return useMemo(() => getNonBscVaultContract(providerOrSigner, chainId), [providerOrSigner, chainId])
+// }
 
-export const useCrossFarmingProxy = (proxyContractAddress: string, withSignerIfPossible = true) => {
-  const { chainId } = useActiveChainId()
-  const providerOrSigner = useProviderOrSigner(withSignerIfPossible)
-  return useMemo(
-    () => proxyContractAddress && getCrossFarmingProxyContract(proxyContractAddress, providerOrSigner, chainId),
-    [proxyContractAddress, providerOrSigner, chainId],
-  )
-}
+// export const useCrossFarmingProxy = (proxyContractAddress: string, withSignerIfPossible = true) => {
+//   const { chainId } = useActiveChainId()
+//   const providerOrSigner = useProviderOrSigner(withSignerIfPossible)
+//   return useMemo(
+//     () => proxyContractAddress && getCrossFarmingProxyContract(proxyContractAddress, providerOrSigner, chainId),
+//     [proxyContractAddress, providerOrSigner, chainId],
+//   )
+// }
 
 export const useStableSwapNativeHelperContract = () => {
   const { chainId } = useActiveChainId()
   const { data: signer } = useSigner()
-  return useMemo(() => getStableSwapNativeHelperContract(signer, chainId), [signer, chainId])
+  // return useMemo(() => getStableSwapNativeHelperContract(signer, chainId), [signer, chainId])
 }
