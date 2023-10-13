@@ -58,8 +58,8 @@ const Menu = (props) => {
         footerLinks={getFooterLinks}
         activeItem={activeMenuItem?.href}
         activeSubItem={activeSubMenuItem?.href}
-        buyCakeLabel={t('Buy SHDW')}
-        buyCakeLink="https://shadowswap.xyz/swap?outputCurrency=0xddBa66C1eBA873e26Ac0215Ca44892a07d83aDF5&chainId=1116"
+        buyCakeLabel={t('Buy VENOS')}
+        buyCakeLink="https://shadowswap.xyz/swap?outputCurrency=0xddBa66C1eBA873e26Ac0215Ca44892a07d83aDF5&chainId=5611"
         {...props}
       />
     </>

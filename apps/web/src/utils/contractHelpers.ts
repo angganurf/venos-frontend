@@ -39,7 +39,11 @@ import {
   getCakeFlexibleSideVaultAddress,
   getPredictionsV1Address,
   getBCakeFarmBoosterAddress,
-  getBCakeFarmBoosterProxyFactoryAddress
+  getBCakeFarmBoosterProxyFactoryAddress,
+  getNonBscVaultAddress,
+  getCrossFarmingReceiverAddress,
+  getCrossFarmingSenderAddress,
+  getStableSwapNativeHelperAddress,
 } from 'utils/addressHelpers'
 
 // ABI
@@ -94,7 +98,7 @@ import nonBscVault from 'config/abi/nonBscVault.json'
 import crossFarmingSenderAbi from 'config/abi/crossFarmingSender.json'
 import crossFarmingReceiverAbi from 'config/abi/crossFarmingReceiver.json'
 import crossFarmingProxyAbi from 'config/abi/crossFarmingProxy.json'
-import mmLinkedPoolAbi from 'config/abi/mmLinkedPool.json'
+// import mmLinkedPoolAbi from 'config/abi/mmLinkedPool.json'
 import stableSwapNativeHelperAbi from 'config/abi/stableSwapNativeHelper.json'
 
 // Types
@@ -142,12 +146,12 @@ import type {
   BCakeFarmBooster,
   BCakeFarmBoosterProxyFactory,
   BCakeProxy,
-  NonBscVault,
-  CrossFarmingSender,
-  CrossFarmingReceiver,
+  // NonBscVault,
+  // CrossFarmingSender,
+  // CrossFarmingReceiver,
   CrossFarmingProxy,
-  MmLinkedPool,
-  StableSwapNativeHelper,
+  // MmLinkedPool,
+  // StableSwapNativeHelper,
 } from 'config/abi/types'
 import { ChainId } from '@pancakeswap/sdk'
 
@@ -204,6 +208,10 @@ export const getCakeContract = (signer?: Signer | Provider, chainId?: number) =>
     address: chainId ? CAKE[chainId].address : CAKE[ChainId.BSC].address,
     signer,
   }) as Cake
+}
+
+export const getNonBscVaultContract = (signer?: Signer | Provider, chainId?: number) => {
+  return getContract({ abi: nonBscVault, address: getNonBscVaultAddress(chainId), chainId, signer })
 }
 export const getProfileContract = (signer?: Signer | Provider) => {
   return getContract({ abi: profileABI, address: getPancakeProfileAddress(), signer }) as PancakeProfile
@@ -375,4 +383,31 @@ export const getCrossFarmingProxyContract = (
   chainId?: number,
 ) => {
   return getContract({ abi: crossFarmingProxyAbi, address: proxyContractAddress, chainId, signer }) as CrossFarmingProxy
+}
+
+export const getCrossFarmingSenderContract = (signer?: Signer | Provider, chainId?: number) => {
+  return getContract({
+    abi: crossFarmingSenderAbi,
+    address: getCrossFarmingSenderAddress(chainId),
+    chainId,
+    signer,
+  })
+}
+
+export const getCrossFarmingReceiverContract = (signer?: Signer | Provider, chainId?: number) => {
+  return getContract({
+    abi: crossFarmingReceiverAbi,
+    address: getCrossFarmingReceiverAddress(chainId),
+    chainId,
+    signer,
+  })
+}
+
+export const getStableSwapNativeHelperContract = (signer?: Signer | Provider, chainId?: number) => {
+  return getContract({
+    abi: stableSwapNativeHelperAbi,
+    address: getStableSwapNativeHelperAddress(chainId),
+    chainId,
+    signer,
+  })
 }

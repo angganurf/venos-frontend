@@ -26,7 +26,7 @@ import { LightCard } from 'components/Card'
 import { ONE_HUNDRED_PERCENT } from 'config/constants/exchange'
 import { formatAmount } from 'utils/formatInfoNumbers'
 import { useStableSwapAPR } from 'hooks/useStableSwapAPR'
-import { useStableSwapNativeHelperContract } from 'hooks/useContract'
+import { useWNativeContract } from 'hooks/useContract'
 
 import CurrencyInputPanel from '../../../components/CurrencyInputPanel'
 import ConnectWalletButton from '../../../components/ConnectWalletButton'
@@ -84,7 +84,7 @@ export default function AddStableLiquidity({ currencyA, currencyB }) {
 
   const { onFieldAInput, onFieldBInput } = useMintActionHandlers(true)
 
-  const nativeHelperContract = useStableSwapNativeHelperContract()
+  const nativeHelperContract = useWNativeContract()
 
   // modal and loading
   const [{ attemptingTxn, liquidityErrorMessage, txHash }, setLiquidityState] = useState<{

@@ -76,9 +76,7 @@ const TabContainer = ({ children, docLink, docText }: PropsWithChildren<{ docLin
   const [index, setIndex] = useState(0)
   const { t } = useTranslation()
 
-  return (
-    <>{children}</>
-  )
+  return <>{children}</>
 }
 
 const MOBILE_DEFAULT_DISPLAY_COUNT = 6
@@ -270,11 +268,10 @@ function DesktopModal<T>({
   connectWallet,
   docLink,
   docText,
-  hideModal1
+  hideModal1,
 }: Pick<WalletModalV2Props<T>, 'wallets' | 'docLink' | 'docText'> & {
   connectWallet: (wallet: WalletConfigV2<T>) => void
-} & {hideModal1 : () => undefined}) {
-
+} & { hideModal1: () => undefined }) {
   const wallets: WalletConfigV2<T>[] = wallets_.filter((w) => {
     return w.installed !== false || (!w.installed && (w.guide || w.downloadLink || w.qrCode))
   })
@@ -283,13 +280,13 @@ function DesktopModal<T>({
   const [error] = useAtom(errorAtom)
   const [qrCode, setQrCode] = useState<string | undefined>(undefined)
   const { t } = useTranslation()
-  
+
   const connectToWallet = (wallet: WalletConfigV2<T>) => {
     connectWallet(wallet)
   }
-  
+
   const hideModal = () => {
-    console.log("poo")
+    console.log('poo')
     hideModal1()
   }
 
@@ -305,14 +302,17 @@ function DesktopModal<T>({
         className={desktopWalletSelectionClass}
       >
         <AtomBox display="flex" justifyContent="space-between" px="48px">
-          <Heading color="#FFFFFF" as="h4" style={{paddingBottom:"30px"}}>
+          <Heading color="#FFFFFF" as="h4" style={{ paddingBottom: '30px' }}>
             {t('Connect Wallet')}
           </Heading>
-          <div onClick={hideModal} style={{fontSize:"20px", fontWeight:"bold", background : "#2A2448", cursor:"pointer"}}>&times;</div>
+          <div
+            onClick={hideModal}
+            style={{ fontSize: '20px', fontWeight: 'bold', background: '#2A2448', cursor: 'pointer' }}
+          >
+            &times;
+          </div>
         </AtomBox>
-        <AtomBox py="20px" style={{borderTop:"2px solid rgb(138 0 163)"}}>
-
-        </AtomBox>
+        <AtomBox py="20px" style={{ borderTop: '2px solid rgb(138 0 163)' }}></AtomBox>
         <WalletSelect
           wallets={wallets}
           onClick={(w) => {
@@ -325,9 +325,7 @@ function DesktopModal<T>({
             }
           }}
         />
-        <AtomBox style={{borderTop:"2px solid rgb(138 0 163)", marginTop:"20px"}}>
-
-        </AtomBox>
+        <AtomBox style={{ borderTop: '2px solid rgb(138 0 163)', marginTop: '20px' }}></AtomBox>
         <AtomBox
           flex={1}
           mx="24px"
@@ -338,11 +336,10 @@ function DesktopModal<T>({
           justifyContent="center"
           flexDirection="column"
           alignItems="center"
-        > 
+        >
           {!selected && <Intro docLink={docLink} docText={docText} />}
         </AtomBox>
       </AtomBox>
-      
     </>
   )
 }
@@ -359,11 +356,11 @@ export function WalletModalV2<T = unknown>(props: WalletModalV2Props<T>) {
 
   const [show, setShow] = useState(false)
   const hideModal = () => {
-    console.log("ppp")
+    console.log('ppp')
     setShow(false)
   }
 
- const imageSources = useMemo(
+  const imageSources = useMemo(
     () =>
       wallets
         .map((w) => w.icon)
@@ -396,21 +393,27 @@ export function WalletModalV2<T = unknown>(props: WalletModalV2Props<T>) {
     }
   }
 
-
   return (
-    <ModalV2 closeOnOverlayClick {...rest} >
+    <ModalV2 closeOnOverlayClick {...rest}>
       <ModalWrapper onDismiss={props.onDismiss} style={{ overflow: 'visible', border: 'none' }}>
         <AtomBox position="relative">
           <TabContainer docLink={docLink} docText={docText}>
             {isMobile ? (
               <MobileModal connectWallet={connectWallet} wallets={wallets} docLink={docLink} docText={docText} />
             ) : (
-              <DesktopModal hideModal1={props.onDismiss}  connectWallet={connectWallet} wallets={wallets} docLink={docLink} docText={docText} />
+              <DesktopModal
+                connectWallet={connectWallet}
+                wallets={wallets}
+                docLink={docLink}
+                docText={docText}
+                hideModal1={function (): undefined {
+                  throw new Error('Function not implemented.')
+                }}
+              />
             )}
           </TabContainer>
         </AtomBox>
       </ModalWrapper>
-
     </ModalV2>
   )
 }

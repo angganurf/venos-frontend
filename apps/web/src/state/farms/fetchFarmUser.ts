@@ -7,7 +7,16 @@
 // import { getMasterChefAddress, getNonBscVaultAddress } from 'utils/addressHelpers'
 // import { SerializedFarmConfig } from 'config/constants/types'
 // import { verifyBscNetwork } from 'utils/verifyBscNetwork'
-// import { getCrossFarmingReceiverContract } from 'utils/contractHelpers'
+import { getCrossFarmingReceiverContract } from 'utils/contractHelpers'
+import BigNumber from 'bignumber.js'
+import erc20ABI from 'config/abi/erc20.json'
+import masterchefABI from 'config/abi/masterchef.json'
+import NoBscVaultAbi from 'config/abi/NoBscVaultAbi.json'
+import multicall, { multicallv2 } from 'utils/multicall'
+import { getMasterChefAddress } from 'utils/addressHelpers'
+import { SerializedFarmConfig } from 'config/constants/types'
+import { verifyBscNetwork } from 'utils/verifyBscNetwork'
+import { getBscChainId } from 'state/farms/getBscChainId'
 // import { farmFetcher } from 'state/farms'
 
 // export const fetchFarmUserAllowances = async (
@@ -102,27 +111,16 @@
 //   return parsedEarnings
 // }
 
-// export const fetchCProxyAddress = async (address: string, chainId: number) => {
-//   try {
-//     const crossFarmingAddress = getCrossFarmingReceiverContract(null, chainId)
-//     const cProxyAddress = await crossFarmingAddress.cProxy(address)
-//     return cProxyAddress.toString()
-//   } catch (error) {
-//     console.error('Failed Fetch CProxy Address', error)
-//     return address
-//   }
-// }
-
-
-import BigNumber from 'bignumber.js'
-import erc20ABI from 'config/abi/erc20.json'
-import masterchefABI from 'config/abi/masterchef.json'
-import NoBscVaultAbi from 'config/abi/NoBscVaultAbi.json'
-import multicall, { multicallv2 } from 'utils/multicall'
-import { getMasterChefAddress } from 'utils/addressHelpers'
-import { SerializedFarmConfig } from 'config/constants/types'
-import { verifyBscNetwork } from 'utils/verifyBscNetwork'
-import { getBscChainId } from 'state/farms/getBscChainId'
+export const fetchCProxyAddress = async (address: string, chainId: number) => {
+  try {
+    const crossFarmingAddress = getCrossFarmingReceiverContract(null, chainId)
+    const cProxyAddress = await crossFarmingAddress.cProxy(address)
+    return cProxyAddress.toString()
+  } catch (error) {
+    console.error('Failed Fetch CProxy Address', error)
+    return address
+  }
+}
 
 export const fetchFarmUserAllowances = async (
   account: string,

@@ -180,8 +180,8 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
   const userDataReady = !account || (!!account && userDataLoaded)
 
   const [stakedOnly, setStakedOnly] = useUserFarmStakedOnly(isActive)
-  const [boostedOnly, setBoostedOnly] = useState(false)
-  const [stableSwapOnly, setStableSwapOnly] = useState(false)
+  const [boostedOnly] = useState(false)
+  const [stableSwapOnly] = useState(false)
   // const [farmTypesEnableCount, setFarmTypesEnableCount] = useState(0)
 
   const activeFarms = farmsLP.filter(
@@ -346,7 +346,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   return (
     <FarmsContext.Provider value={providerValue}>
-      <PageHeader >
+      <PageHeader>
         <FarmFlexWrapper justifyContent="space-between">
           <Box>
             <FarmH1 as="h1" scale="xxl" color="secondary" mb="24px">
@@ -364,7 +364,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
             <Flex mt="20px">
               <ToggleView idPrefix="clickFarm" viewMode={viewMode} onToggle={setViewMode} />
             </Flex>
-            
+
             <Flex mt="20px" ml="16px">
               <ToggleWrapper>
                 <Toggle
@@ -392,7 +392,6 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
                 farmTypesEnableCount={farmTypesEnableCount}
                 handleSetFarmTypesEnableCount={setFarmTypesEnableCount}
               /> */}
-              
             </Flex>
             <FarmUI.FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
           </ViewControls>

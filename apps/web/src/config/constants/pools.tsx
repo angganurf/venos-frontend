@@ -62,7 +62,7 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
     earningToken: bscTokens.cake,
     contractAddress: {
       97: '0xB4A466911556e39210a6bB2FaECBB59E4eB7E43d',
-      1116: '0xc7887af5f95cdee2b7bbff47554104e8631751df',
+      5611: '0xc7887af5f95cdee2b7bbff47554104e8631751df',
     },
     poolCategory: PoolCategory.CORE,
     tokenPerBlock: '10',
@@ -74,7 +74,7 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
     stakingToken: bscTokens.cake,
     earningToken: bscTokens.cpt,
     contractAddress: {
-      1116: '0x7965675ea8A4053818097e0c150445a406ea0Fa0',
+      5611: '0x7965675ea8A4053818097e0c150445a406ea0Fa0',
       97: '',
     },
     poolCategory: PoolCategory.CORE,
@@ -88,7 +88,7 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
     stakingToken: bscTokens.cpt,
     earningToken: bscTokens.cpt,
     contractAddress: {
-      1116: '0xf6a333f17cf10379b6B9c5604FBF6343cF5134f3',
+      5611: '0xf6a333f17cf10379b6B9c5604FBF6343cF5134f3',
       97: '',
     },
     poolCategory: PoolCategory.CORE,
@@ -100,7 +100,7 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
     stakingToken: bscTokens.cake,
     earningToken: bscTokens.cpt,
     contractAddress: {
-      1116: '0xF7B4f5105170ECd1742836C9574eA8831eb4Da9C',
+      5611: '0xF7B4f5105170ECd1742836C9574eA8831eb4Da9C',
       97: '',
     },
     poolCategory: PoolCategory.CORE,
@@ -113,7 +113,7 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
     stakingToken: bscTokens.cpt,
     earningToken: bscTokens.wbnb,
     contractAddress: {
-      1116: '0xE828C2dB31782338Ab48605099A3C9A83306fe9E',
+      5611: '0xE828C2dB31782338Ab48605099A3C9A83306fe9E',
       97: '',
     },
     poolCategory: PoolCategory.CORE,
@@ -127,8 +127,7 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
 }))
 
 // known finished pools
-const finishedPools = [
-].map((p) => ({
+const finishedPools = [].map((p) => ({
   ...p,
   isFinished: true,
   stakingToken: p.stakingToken.serialize,

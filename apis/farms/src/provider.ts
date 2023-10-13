@@ -2,10 +2,10 @@ import { StaticJsonRpcProvider } from '@ethersproject/providers'
 
 export const bscProvider = new StaticJsonRpcProvider(
   {
-    url: 'https://rpc1.shadowswap.xyz',
+    url: 'https://opbnb-testnet-rpc.bnbchain.org',
     skipFetchSetup: true,
   },
-  1116,
+  5611,
 )
 
 export const bscTestnetProvider = new StaticJsonRpcProvider(

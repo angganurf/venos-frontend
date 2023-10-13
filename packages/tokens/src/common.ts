@@ -2,25 +2,25 @@ import { ChainId, ERC20Token } from '@pancakeswap/sdk'
 
 export const CAKE_MAINNET = new ERC20Token(
   ChainId.BSC,
-  '0xddBa66C1eBA873e26Ac0215Ca44892a07d83aDF5',
+  '0x752982a24C733c5ac62EfB6979Bd1927993f0ab8',
   18,
-  'CAKE',
-  'PancakeSwap Token',
+  'tVenos',
+  'Venos Token Testnet',
   'https://pancakeswap.finance/',
 )
 
 export const CAKE_TESTNET = new ERC20Token(
   ChainId.BSC_TESTNET,
-  '0xFa60D973F7642B748046464e165A65B7323b0DEE',
+  '0x752982a24C733c5ac62EfB6979Bd1927993f0ab8',
   18,
-  'CAKE',
-  'PancakeSwap Token',
+  'tVenos',
+  'Venos Token Testnet',
   'https://pancakeswap.finance/',
 )
 
 export const USDC_BSC = new ERC20Token(
   ChainId.BSC,
-  '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
+  '0x845e27b8a4ad1fe3dc0b41b900dc8c1bb45141c3',
   18,
   'USDC',
   'Binance-Peg USD Coin',
@@ -54,10 +54,10 @@ export const USDC_GOERLI = new ERC20Token(
 
 export const USDT_BSC = new ERC20Token(
   ChainId.BSC,
-  '0x55d398326f99059fF775485246999027B3197955',
+  '0xefe0a89d9b66726385168e4a42f178e71b58fd85',
   18,
   'USDT',
-  'Tether USD',
+  'Testnet USD',
   'https://tether.to/',
 )
 
@@ -72,7 +72,7 @@ export const USDT_ETH = new ERC20Token(
 
 export const BUSD_BSC = new ERC20Token(
   ChainId.BSC,
-  '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
+  '0xa9ad1484d9bfb27adbc2bf50a6e495777cc8cff2',
   18,
   'BUSD',
   'Binance USD',

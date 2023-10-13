@@ -44,8 +44,8 @@ it("renders correctly", () => {
         footerLinks={footerLinks}
         activeItem="Trade"
         activeSubItem="Exchange"
-        buyCakeLabel="Buy CAKE"
-        buyCakeLink="https://shadowswap.xyz/swap?outputCurrency=0xddBa66C1eBA873e26Ac0215Ca44892a07d83aDF5&chainId=1116"
+        buyCakeLabel="Buy VENOS"
+        buyCakeLink="https://shadowswap.xyz/swap?outputCurrency=0xddBa66C1eBA873e26Ac0215Ca44892a07d83aDF5&chainId=5611"
       >
         body
       </Menu>

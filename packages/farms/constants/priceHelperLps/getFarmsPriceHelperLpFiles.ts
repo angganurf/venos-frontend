@@ -1,5 +1,5 @@
 import { ChainId } from '@pancakeswap/sdk'
-import FarmsBscPriceHelper from './1116'
+import FarmsBscPriceHelper from './5611'
 import FarmsBscTestnetPriceHelper from './97'
 import FarmsEthereumPriceHelper from './1'
 import FarmsGoerliPriceHelper from './5'

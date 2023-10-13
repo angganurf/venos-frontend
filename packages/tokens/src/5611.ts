@@ -6,22 +6,22 @@ export const bscTokens = {
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
   bnb: new ERC20Token(
     ChainId.BSC,
-    '0x191E94fa59739e188dcE837F7f6978d84727AD01',
+    '0xF0B4a48860434a386489Eb07900A2Fd20B5F45EB',
     18,
-    'CORE',
-    'CORE',
-    'https://www.coredao.org/',
+    'tBNB',
+    'tBNB',
+    'https://www.binance.com/',
   ),
   cake: CAKE_MAINNET,
   busd: BUSD_BSC,
   usdt: USDT_BSC,
   tifot: new ERC20Token(
     ChainId.BSC,
-    '0xAA7E173D6fa1751F39Ce2F49b42E3fA90A1FdD19',
+    '0x752982a24C733c5ac62EfB6979Bd1927993f0ab8',
     18,
-    'tifot',
-    'tifot',
-    'https://betafinance.org',
+    'tVenos',
+    'Venos Testnet',
+    'https://venosproject.org',
   ),
 
   cpt: new ERC20Token(
@@ -33,6 +33,55 @@ export const bscTokens = {
     'https://crestprotocol.co',
   ),
 
+  lazio: new ERC20Token(
+    ChainId.BSC,
+    '0xcFE4C0783d103C44f403Bb287d29af0bAE5D4E84',
+    8,
+    'lazio',
+    'lazio',
+    'https://crestprotocol.co',
+  ),
+
+  porto: new ERC20Token(
+    ChainId.BSC,
+    '0xcFE4C0783d103C44f403Bb287d29af0bAE5D4E84',
+    8,
+    'porto',
+    'porto',
+    'https://crestprotocol.co',
+  ),
+  santos: new ERC20Token(
+    ChainId.BSC,
+    '0xcFE4C0783d103C44f403Bb287d29af0bAE5D4E84',
+    8,
+    'porto',
+    'porto',
+    'https://crestprotocol.co',
+  ),
+  mbox: new ERC20Token(
+    ChainId.BSC,
+    '0xcFE4C0783d103C44f403Bb287d29af0bAE5D4E84',
+    8,
+    'porto',
+    'porto',
+    'https://crestprotocol.co',
+  ),
+  lvl: new ERC20Token(
+    ChainId.BSC,
+    '0xcFE4C0783d103C44f403Bb287d29af0bAE5D4E84',
+    8,
+    'porto',
+    'porto',
+    'https://crestprotocol.co',
+  ),
+  dar: new ERC20Token(
+    ChainId.BSC,
+    '0xcFE4C0783d103C44f403Bb287d29af0bAE5D4E84',
+    8,
+    'porto',
+    'porto',
+    'https://crestprotocol.co',
+  ),
   yz: new ERC20Token(
     ChainId.BSC,
     '0xe191a4d47A6be111C75139757CDDBb61BEEd88FB',
@@ -49,6 +98,9 @@ export const bscTokens = {
     'Moon Dogs',
     'https://www.woofsite.com/',
   ),
+
+  CUBI: new ERC20Token(ChainId.BSC, '0x864e732666df56b096f2732C1013AE375282dc4b', 18, 'CUBI', 'CUBI', ''),
+
   syrup: new ERC20Token(
     ChainId.BSC,
     '0x009cF7bC57584b7998236eff51b98A168DceA9B0',

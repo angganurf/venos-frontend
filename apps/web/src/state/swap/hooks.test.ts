@@ -101,7 +101,7 @@ var mockUseActiveWeb3React: Mock
 
 vi.mock('../../hooks/useActiveWeb3React', () => {
   mockUseActiveWeb3React = vi.fn().mockReturnValue({
-    chainId: 1116,
+    chainId: 5611,
   })
   return {
     __esModule: true,
